@@ -1,3 +1,4 @@
 [submodule "pycom"]
 	path = pycom
 	url = https://github.com/ploschka/Python-compiler.git
+	branch = unstable
