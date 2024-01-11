@@ -3,3 +3,4 @@ build
 .idea
 temp
 cmake-build-debug
+pycom_api.*.so
