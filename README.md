@@ -1,5 +1,7 @@
 # TUMBA
 
+[![TUMBA logo](/DOCS/logo.png)](https://github.com/ploschka/python-tumba)
+
 ## Сборка
 
 1. Клонируйте репозиторий и перейдите в созданную директорию
