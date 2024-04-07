@@ -33,7 +33,9 @@ int compile_and_put_in(std::string filepath, std::string output_dir) {
     if (pycom.checkSemantics())
     {
         pycom.generate();
-        pycom.compile(output, llvm::OptimizationLevel::O0, llvm::PIELevel::Default, llvm::PICLevel::NotPIC);
+        pycom.emitLLVM(llvm::errs());
+        pycom.compile(output, llvm::OptimizationLevel::O3, llvm::PIELevel::Default, llvm::PICLevel::NotPIC);
+        pycom.link(output_dir+"output.o",output_dir+"output.so",true, false);
     }
     return 0;
 }
