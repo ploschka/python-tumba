@@ -40,23 +40,3 @@ def compile(func):
     ret_func.restype=get_type(func.__annotations__['return'])
     ret_func.argtypes = argtypes
     return ret_func
-
-#@compile                                              #ret void
-#def fib(zcds1 : str, n : int, abcd: int) -> str:
-#    return zcds1
-#@compile                                             # 1 argument failure
-#def fib(zcds1 : str, n : int, abcd: int) -> int:
-#    return n*abcd
-
-@compile                                             
-def fib(n : int) -> int:
-    a : int = 0
-    b : int = 1
-    i : int = 0
-    while i < n :
-        b = a + b
-        a = b - a
-        i = i + 1
-    return a
-
-print(fib(50))
