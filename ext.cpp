@@ -9,7 +9,7 @@
 #include <fstream>
 
 
-int compile_and_put_in(std::string filepath, std::string output_dir) {
+int compile_and_put_in(std::string filepath, std::string output_dir, std::string stdlib) {
     if (!std::filesystem::exists(filepath))
     {
         std::cerr << "File " << filepath << " does not exist!\n";
@@ -35,7 +35,7 @@ int compile_and_put_in(std::string filepath, std::string output_dir) {
         pycom.generate();
         pycom.emitLLVM(llvm::errs());
         pycom.compile(output, llvm::OptimizationLevel::O3, llvm::PIELevel::Default, llvm::PICLevel::NotPIC);
-        pycom.link(output_dir+"output.o",output_dir+"output.so",true, false);
+        pycom.link(output_dir+"output.o",output_dir+"output.so", stdlib, "", true);
     }
     return 0;
 }
