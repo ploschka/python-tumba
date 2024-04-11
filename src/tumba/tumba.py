@@ -1,8 +1,12 @@
 import inspect
 import ctypes
-import pycom_api
 import os
 import typing
+
+pycom_dir = os.path.dirname(__file__) + os.path.sep + 'pycom' + os.path.sep 
+
+ctypes.cdll.LoadLibrary(pycom_dir + 'libpycomlib.so')
+import tumba.pycom_api as pycom_api
 
 def get_type(python_type):
     if python_type==int:
@@ -17,7 +21,7 @@ def generate_so_file(func_name, func_info):
     temp_so_path=tempdir+'/'+func_name+"_"
     with open(temp_py_path, 'w') as f:
         f.write(func_info)    
-    flag = pycom_api.compile_and_put_in(temp_py_path,temp_so_path)
+    flag = pycom_api.compile_and_put_in(temp_py_path,temp_so_path,pycom_dir + "libstd.a")
     os.remove(temp_py_path)
     os.remove(temp_so_path+'output.o')
     return temp_so_path+"output.so"
