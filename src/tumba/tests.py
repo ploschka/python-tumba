@@ -1,7 +1,7 @@
-import tumba
+import tumba.tumba
 
 #var definition, while-loop
-@tumba.compile                                             
+@tumba.tumba.compile                                             
 def fib(n : int) -> int:
     a : int = 0
     b : int = 1
@@ -13,7 +13,7 @@ def fib(n : int) -> int:
     return a
 
 #if-block, one-arg, recursive-func
-@tumba.compile
+@tumba.tumba.compile
 def fib_recursive(n:int) -> int:
     ret : int = n
     if n>1:
@@ -21,7 +21,7 @@ def fib_recursive(n:int) -> int:
     return ret
 
 #if-else, elif, if-in-an-if, no-args
-@tumba.compile
+@tumba.tumba.compile
 def a_lot_of_ifs() -> int:
     x : int = 5
     if x > 10:
@@ -40,7 +40,7 @@ def a_lot_of_ifs() -> int:
     return x
 
 #two-args, loop-in-a-loop
-@tumba.compile
+@tumba.tumba.compile
 def args_loop(x : int, s : int) -> int:
     accum : int = 0
     while x<20:
@@ -51,7 +51,7 @@ def args_loop(x : int, s : int) -> int:
     return accum
 
 #more-args
-@tumba.compile
+@tumba.tumba.compile
 def more_args(ad : int, zxc : int, aboba : int, buster_dilara : int) -> int :
     sum_of_args : int = 0
     sum_of_args = zxc+aboba+buster_dilara
