@@ -3,3 +3,5 @@ build
 .idea
 temp
 cmake-build-debug
+pycom_api.*.so
+__pycache__
